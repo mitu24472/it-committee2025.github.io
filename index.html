@@ -56,7 +56,7 @@
     </section>
 
     <!-- カウントダウンセクション -->
-    <section class="countdown-section fade-in">
+    <section class="countdown-section">
         <div class="countdown-container">
             <h2 class="countdown-title">創作展まで</h2>
             <div class="countdown-display" id="countdown">
@@ -82,7 +82,7 @@
             </div>
             <div class="event-info">
                 <p class="event-date">2025年9月13日(土) - 9月14日(日)</p>
-                <p class="event-time">開場時間：8:30～16:00</p>
+                <p class="event-time">開場時間：8:20～15:30</p>
                 <p class="event-location">@東京都立小石川中等教育学校</p>
             </div>
         </div>
@@ -159,28 +159,39 @@
         // パーティクルアニメーション
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 60;
+            // 横幅10pxあたり1個のパーティクル
+            const particleCount = Math.floor(window.innerWidth / 10);
 
-            // ユニバーサルデザインを意識した暗めで引き締まった色のパレット
+            // カラフルで薄い明るい色のパレット
             const colors = [
-                'rgba(52, 73, 94, 0.4)',   // ダークグレー
-                'rgba(44, 62, 80, 0.4)',   // ダークブルーグレー
-                'rgba(93, 109, 126, 0.4)', // ミディアムグレー
-                'rgba(133, 146, 158, 0.3)', // ライトグレー
-                'rgba(174, 182, 191, 0.3)', // ベリライトグレー
-                'rgba(213, 219, 219, 0.3)'  // ベリライトグレー
+                'rgba(255, 182, 193, 0.6)',   // ライトピンク
+                'rgba(173, 216, 230, 0.6)',   // ライトブルー
+                'rgba(144, 238, 144, 0.6)',   // ライトグリーン
+                'rgba(255, 218, 185, 0.6)',   // ピーチパフ
+                'rgba(221, 160, 221, 0.6)',   // プラム
+                'rgba(255, 255, 224, 0.6)',   // ライトイエロー
+                'rgba(176, 224, 230, 0.6)',   // パウダーブルー
+                'rgba(255, 192, 203, 0.6)',   // ピンク
+                'rgba(152, 251, 152, 0.6)',   // パレグリーン
+                'rgba(255, 228, 196, 0.6)',   // ビスケット
+                'rgba(230, 230, 250, 0.6)',   // ラベンダー
+                'rgba(255, 240, 245, 0.6)'    // ラベンダーブラッシュ
             ];
+
+            // サイズも画面横幅にやや比例させる
+            const minSize = Math.max(3, window.innerWidth / 200);
+            const maxSize = Math.min(30, window.innerWidth / 50);
 
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
 
                 // ランダムなサイズと位置
-                const size = Math.random() * 6 + 3;
+                const size = Math.random() * (maxSize - minSize) + minSize;
                 particle.style.width = size + 'px';
                 particle.style.height = size + 'px';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDelay = Math.random() * 10 + 's';
                 particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
 
                 // ランダムな色を適用
