@@ -225,3 +225,19 @@
         font-size: 0.9rem;
     }
 }
+
+/* スマホ用改行制御 */
+.br-sp {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .br-sp {
+        display: block;
+        width: 100%;
+        height: 0;
+        line-height: 0;
+        margin: 0;
+        padding: 0;
+    }
+}

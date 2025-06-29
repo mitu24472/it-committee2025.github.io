@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="event-info">
-                <p class="event-date">2025年9月13日(土) - 9月14日(日)</p>
+                <p class="event-date">2025年<span class="br-sp"></span>9月13日(土) - 9月14日(日)</p>
                 <p class="event-time">開場時間：8:20～15:30</p>
                 <p class="event-location">@東京都立小石川中等教育学校</p>
             </div>
@@ -137,7 +137,7 @@
         <div class="notice-container">
             <div class="notice-list">
                 <div class="notice-item">
-                    <h3 class="notice-heading">創作展の開催が決定しました！</h3>
+                    <h3 class="notice-heading">創作展HPを公開しました！</h3>
                     <div class="notice-date">2025/07/01</div>
                     <p class="notice-content">今年の創作展は9月13日(土)と14日(日)に開催されます。皆様のご来場をお待ちしております。</p>
                 </div>
@@ -191,7 +191,8 @@
                 particle.style.width = size + 'px';
                 particle.style.height = size + 'px';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 10 + 's';
+                const anim_delay = Math.random() * 20
+                particle.style.animationDelay = anim_delay + 's';
                 particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
 
                 // ランダムな色を適用
@@ -200,6 +201,10 @@
                 particle.style.boxShadow = `0 0 ${size * 2}px ${randomColor.replace('0.4', '0.6').replace('0.3', '0.5')}`;
 
                 particlesContainer.appendChild(particle);
+                // アニメーション開始時に表示
+                setTimeout(() => {
+                    particle.classList.add('show');
+                }, anim_delay * 1000 + 10);
             }
         }
 
