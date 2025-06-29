@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - 創作展</title>
+    <!-- cssを読み込む -->
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../style/countdown.css">
+    <link rel="stylesheet" href="../../style/toppage.css">
+    <link rel="stylesheet" href="../../style/particle.css">
+    <link rel="stylesheet" href="../../style/header.css">
+    <script src="../../js/config.js"></script>
+    <script src="../../js/mousemove.js"></script>
+    <script src="../../js/load_component.js"></script>
+    <script src="../../js/floating_menu.js"></script>
+    <style>
+        body {
+            padding-top: 80px;
+        }
+
+        /* メールアドレスとコピーボタンのスタイル */
+        .contact-email {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .email-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .email-container:hover {
+            border-color: #06aff2;
+            box-shadow: 0 4px 12px rgba(6, 175, 242, 0.1);
+        }
+
+        .email-address {
+            font-family: 'Exo 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2d3748;
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            user-select: all;
+            letter-spacing: 0.5px;
+        }
+
+        .copy-button {
+            padding: 0.8rem 1.5rem;
+            background: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2);
+        }
+
+        .copy-button:hover {
+            background: #357ABD;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+        }
+
+        .copy-button:active {
+            transform: translateY(0);
+        }
+
+        .copy-feedback {
+            display: none;
+            color: #059669;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            background: #d1fae5;
+            border: 1px solid #a7f3d0;
+            border-radius: 6px;
+            animation: fadeInOut 2s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            20% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            80% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .email-container {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .email-address {
+                font-size: 1rem;
+                text-align: center;
+            }
+
+            .copy-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+
+
+    <!-- パーティクル背景 -->
+    <div class="particles" id="particles"></div>
+
+    <div class="page-title">お問い合わせ</div>
+
+    <div class="content-container">
+        <div class="content-box fade-in">
+            <h3>お問い合わせはこちら</h3>
+            <p>ご不明点やご質問がある方は、以下のメールアドレスまでお気軽にお問い合わせください。</p>
+            <div class="contact-email">
+                <div class="email-container">
+                    <span class="email-address" id="emailAddress">it.committee2025@gmail.com</span>
+                    <button class="copy-button" id="copyButton" onclick="copyEmail()">
+                        コピー
+                    </button>
+                </div>
+                <div class="copy-feedback" id="copyFeedback">コピーしました！</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 浮遊メニュー -->
+    <div id="floating-menu-placeholder"></div>
+
+
+
+
+
+    <script>
+
+        // パーティクルアニメーション
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+
+                // ランダムなサイズと位置
+                const size = Math.random() * 4 + 2;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+
+        // スクロールアニメーション
+        function observeElements() {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            });
+
+            elements.forEach((el) => observer.observe(el));
+        }
+
+        // 初期化
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            observeElements();
+        });
+
+        // メールアドレスコピー機能
+        function copyEmail() {
+            const emailAddress = document.getElementById('emailAddress').textContent;
+            const copyButton = document.getElementById('copyButton');
+            const copyFeedback = document.getElementById('copyFeedback');
+
+            // クリップボードにコピー
+            navigator.clipboard.writeText(emailAddress).then(() => {
+                // 成功時のフィードバック
+                copyFeedback.style.display = 'block';
+                copyButton.textContent = 'コピー完了！';
+                copyButton.style.background = '#059669';
+
+                // 2秒後に元に戻す
+                setTimeout(() => {
+                    copyFeedback.style.display = 'none';
+                    copyButton.textContent = 'コピー';
+                    copyButton.style.background = '#4A90E2';
+                }, 2000);
+            }).catch(err => {
+                // エラー時の処理（フォールバック）
+                console.error('コピーに失敗しました:', err);
+
+                // 古いブラウザ用のフォールバック
+                const textArea = document.createElement('textarea');
+                textArea.value = emailAddress;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                // フィードバック表示
+                copyFeedback.style.display = 'block';
+                copyButton.textContent = 'コピー完了！';
+                copyButton.style.background = '#059669';
+
+                setTimeout(() => {
+                    copyFeedback.style.display = 'none';
+                    copyButton.textContent = 'コピー';
+                    copyButton.style.background = '#4A90E2';
+                }, 2000);
+            });
+        }
+
+    </script>
+</body>
+
+</html>

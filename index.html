@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>創作展 - ここから広がる無限の創造</title>
+    <!-- cssを読み込む -->
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/countdown.css">
+    <link rel="stylesheet" href="style/toppage.css">
+    <link rel="stylesheet" href="style/particle.css">
+    <script src="js/config.js"></script>
+    <script src="js/Countdown.js"></script>
+    <script src="js/mousemove.js"></script>
+    <script src="js/load_component.js"></script>
+    <script src="js/floating_menu.js"></script>
+</head>
+
+<body>
+    <!-- パーティクル背景 -->
+    <div class="particles" id="particles"></div>
+
+    <!-- メインヒーローセクション -->
+    <section class="hero">
+        <div class="logo">第93回 創作展</div>
+        <div class="theme-container">
+            <div class="decoration-circle"></div>
+            <div class="decoration-triangle"></div>
+            <div class="decoration-square"></div>
+            <div class="decoration-triangle"></div>
+            <div class="decoration-hexagon"></div>
+            <div class="decoration-diamond"></div>
+            <div class="decoration-star"></div>
+            <div class="decoration-wave"></div>
+            <div class="decoration-hexagon"></div>
+            <div class="decoration-diamond"></div>
+            <div class="decoration-star"></div>
+            <div class="decoration-wave"></div>
+            <div class="decoration-circle decoration-top-left"></div>
+            <div class="decoration-triangle decoration-top-left"></div>
+            <div class="decoration-square decoration-top-left"></div>
+            <div class="decoration-hexagon decoration-top-left"></div>
+            <div class="decoration-diamond decoration-bottom-right"></div>
+            <div class="decoration-star decoration-bottom-right"></div>
+            <div class="decoration-wave decoration-bottom-right"></div>
+            <div class="decoration-circle decoration-bottom-right"></div>
+            <div class="decoration-triangle decoration-bottom-right"></div>
+            <div class="decoration-square decoration-bottom-right"></div>
+            <div class="decoration-hexagon decoration-bottom-right"></div>
+            <h1 class="theme">
+                <span>こ</span><span>こ</span><span>か</span><span>ら</span><span>広</span><span>が</span><span>る</span><br><span>無</span><span>限</span><span>の</span><span>創</span><span>造</span>
+            </h1>
+        </div>
+        <p class="subtitle">9/13~9/14@東京都立小石川中等教育学校</p>
+    </section>
+
+    <!-- カウントダウンセクション -->
+    <section class="countdown-section fade-in">
+        <div class="countdown-container">
+            <h2 class="countdown-title">創作展まで</h2>
+            <div class="countdown-display" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">--</span>
+                    <span class="countdown-label">日</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">--</span>
+                    <span class="countdown-label">時間</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">--</span>
+                    <span class="countdown-label">分</span>
+                </div>
+                <div class="countdown-separator">:</div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">--</span>
+                    <span class="countdown-label">秒</span>
+                </div>
+            </div>
+            <div class="event-info">
+                <p class="event-date">2025年9月13日(土) - 9月14日(日)</p>
+                <p class="event-time">開場時間：8:30～16:00</p>
+                <p class="event-location">@東京都立小石川中等教育学校</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ナビゲーションセクション -->
+    <section class="nav-container fade-in">
+        <h2 class="nav-section-title">メニュー</h2>
+        <div class="nav-grid">
+            <a class="nav-card" href="page/about/">
+                <span class="nav-icon">🎨</span>
+                <h3 class="nav-title">創作展とは？</h3>
+                <p class="nav-description">初めての方に向けて、私たちの学校の文化祭「創作展」についてご説明します。</p>
+            </a>
+
+            <div class="nav-card disabled">
+                <span class="nav-icon">🖼️</span>
+                <h3 class="nav-title">展示内容紹介</h3>
+                <p class="nav-description">各クラス・部活動の展示の内容をご覧いただけます。</p>
+                <div class="preparing-badge">準備中</div>
+            </div>
+
+            <div class="nav-card disabled">
+                <span class="nav-icon">📅</span>
+                <h3 class="nav-title">タイムスケジュール</h3>
+                <p class="nav-description">公演等のタイムスケジュールはこちら。</p>
+                <div class="preparing-badge">準備中</div>
+            </div>
+
+            <a class="nav-card" href="page/lottery/">
+                <span class="nav-icon">🎫</span>
+                <h3 class="nav-title">抽選申し込み</h3>
+                <p class="nav-description">5・6年生の劇は事前申し込み制となっております。詳しくはこちらをご覧ください。</p>
+            </a>
+
+            <a class="nav-card" href="page/notice/">
+                <span class="nav-icon">📋</span>
+                <h3 class="nav-title">来校時のご注意</h3>
+                <p class="nav-description">ご来校の際の注意事項、アクセス方法、校内地図などをご覧いただけます。</p>
+            </a>
+            <a class="nav-card" href="page/contact/">
+                <span class="nav-icon">✉️</span>
+                <h3 class="nav-title">お問い合わせ</h3>
+                <p class="nav-description">ご不明点やご質問がある方は、こちらからお問い合わせください。</p>
+            </a>
+        </div>
+    </section>
+
+    <!--お知らせセクション-->
+    <section class="notice-section fade-in">
+        <h2 class="notice-title">お知らせ</h2>
+        <div class="notice-container">
+            <div class="notice-list">
+                <div class="notice-item">
+                    <h3 class="notice-heading">創作展の開催が決定しました！</h3>
+                    <div class="notice-date">2025/07/01</div>
+                    <p class="notice-content">今年の創作展は9月13日(土)と14日(日)に開催されます。皆様のご来場をお待ちしております。</p>
+                </div>
+            </div>
+            <!-- もっと見る -->
+            <a href="page/news/" class="more-notice">
+                もっと見る
+            </a>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 浮遊メニュー -->
+    <div id="floating-menu-placeholder"></div>
+
+    <script>
+        // パーティクルアニメーション
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 60;
+
+            // ユニバーサルデザインを意識した暗めで引き締まった色のパレット
+            const colors = [
+                'rgba(52, 73, 94, 0.4)',   // ダークグレー
+                'rgba(44, 62, 80, 0.4)',   // ダークブルーグレー
+                'rgba(93, 109, 126, 0.4)', // ミディアムグレー
+                'rgba(133, 146, 158, 0.3)', // ライトグレー
+                'rgba(174, 182, 191, 0.3)', // ベリライトグレー
+                'rgba(213, 219, 219, 0.3)'  // ベリライトグレー
+            ];
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+
+                // ランダムなサイズと位置
+                const size = Math.random() * 6 + 3;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+
+                // ランダムな色を適用
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = randomColor;
+                particle.style.boxShadow = `0 0 ${size * 2}px ${randomColor.replace('0.4', '0.6').replace('0.3', '0.5')}`;
+
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // スクロールアニメーション
+        function observeElements() {
+            const elements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            });
+
+            elements.forEach((el) => observer.observe(el));
+        }
+
+        // 初期化
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            observeElements();
+            updateCountdown();
+
+            // カウントダウンを1秒ごとに更新
+            setInterval(updateCountdown, 1000);
+        });
+    </script>
+</body>
+
+</html>
