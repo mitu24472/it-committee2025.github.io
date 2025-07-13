@@ -1378,3 +1378,112 @@
         height: 25px;
     }
 }
+
+/* ヒーロー画像配置（右上・左下） */
+.hero-img-topright,
+.hero-img-bottomleft {
+    position: absolute;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.hero-img-topright {
+    top: 2vw;
+    right: 3vw;
+    width: 22vw;
+    max-width: 260px;
+    min-width: 90px;
+}
+
+.hero-img-bottomleft {
+    bottom: 18vw;
+    left: 3vw;
+    width: 14vw;
+    max-width: 160px;
+    min-width: 50px;
+}
+
+.slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(26, 54, 93, 0.13);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1.2s cubic-bezier(.4, 0, .2, 1), visibility 0s linear 1.2s;
+    pointer-events: none;
+    display: block;
+    z-index: 0;
+}
+
+.slider-image.show-once {
+    visibility: visible;
+}
+
+.slider-image.active {
+    opacity: 1;
+    z-index: 1;
+    pointer-events: auto;
+    transition: opacity 1.2s cubic-bezier(.4, 0, .2, 1), visibility 0s;
+}
+
+.slider-image:not(.active) {
+    transition: opacity 1.2s cubic-bezier(.4, 0, .2, 1), visibility 0s linear 1.2s;
+}
+
+.hero-img-topright .slider-image {
+    transform: rotate(8deg);
+}
+
+.hero-img-bottomleft .slider-image {
+    transform: rotate(-7deg);
+}
+
+@media (max-width: 768px) {
+
+    .hero-img-topright,
+    .hero-img-bottomleft {
+        width: 32vw;
+        max-width: 180px;
+        min-width: 60px;
+    }
+
+    .hero-img-topright {
+        top: 2vw;
+        right: 2vw;
+    }
+
+    .hero-img-bottomleft {
+        bottom: 18vw;
+        left: 2vw;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero-img-topright,
+    .hero-img-bottomleft {
+        width: 44vw;
+        max-width: 120px;
+        min-width: 40px;
+    }
+
+    .hero-img-bottomleft {
+        width: 48vw;
+        max-width: 110px;
+        min-width: 20px;
+        bottom: 48vw;
+        left: 10vw;
+    }
+
+    .hero-img-topright {
+        width: 58vw;
+        max-width: 150px;
+        min-width: 40px;
+        top: 12vw;
+        right: 10vw;
+    }
+}
